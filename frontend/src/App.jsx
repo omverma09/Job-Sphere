@@ -34,21 +34,21 @@ function App() {
           <Route element={<ProtectRoute />}>
             <Route path="/student/dashboard" element={<DashboardLayout />}>
               <Route index element={<DashboardAllPages />} />
-              <Route path="/student/dashboard/update-profile" element={<UpdateProfileForm />} />
-              <Route path="/student/dashboard/my-application" element={<MyApplications />} />
-              <Route path="/student/dashboard/prepare" element={<Prepration />} />
-              <Route path="/student/dashboard/placement-courses" element={<Courses />} />
-              <Route path="/student/dashboard/jobs" element={<JobsPage />} />
-              <Route path="/student/dashboard/jobs/:id" element={<JobDetails />} />
+              <Route path="update-profile" element={<UpdateProfileForm />} />
+              <Route path="my-application" element={<MyApplications />} />
+              <Route path="prepare" element={<Prepration />} />
+              <Route path="placement-courses" element={<Courses />} />
+              <Route path="jobs" element={<JobsPage />} />
+              <Route path="jobs/:id" element={<JobDetails />} />
             </Route>
 
             <Route path="/recruiter/dashboard" element={<RecruiterLayout />}>
               <Route index element={<Applicants />} />
-              <Route path="/recruiter/dashboard/post-job" element={<PostJob />} />
-              <Route path="/recruiter/dashboard/my-jobs" element={<MyJobs />} />
+              <Route path="post-job" element={<PostJob />} />
+              <Route path="my-jobs" element={<MyJobs />} />
             </Route>
-          </Route>
 
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>
