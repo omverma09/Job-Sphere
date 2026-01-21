@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body{
+    padding: 0;
+    margin: 0;
+}
+.Edit-profile-option{
+    margin-top: 100;
+}
