@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PublicLayout from "./layouts/PublicLayout ";
+import PublicLayout from "./layouts/PublicLayout.jsx"
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AllPublicPages from "./layouts/AllPublicPages";
