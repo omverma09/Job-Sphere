@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext'; // ← adjust path to your real hook
+import { useAuth } from '../../context/AuthContext';
 
 import {
   Avatar,

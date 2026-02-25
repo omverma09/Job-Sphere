@@ -12,6 +12,20 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+
+    password: {
+      type: String,
+      required: true,
+      minlength: 6,
+      select: false,
+    },
+
+    role: {
+      type: String,
+      enum: ["user", "recruiter"],
+      default: "user",
+    },
+    
     bio: { type: String },
     skills: [{ type: String }],
     location: { type: String },
@@ -27,20 +41,7 @@ const userSchema = new mongoose.Schema(
     resume: {
       url: String,
       public_id: String,
-    },
-
-    password: {
-      type: String,
-      required: true,
-      minlength: 6,
-      select: false,
-    },
-
-    role: {
-      type: String,
-      enum: ["user", "recruiter"],
-      default: "user",
-    },
+    }
   },
   { timestamps: true }
 );

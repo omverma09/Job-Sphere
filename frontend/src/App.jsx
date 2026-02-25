@@ -18,6 +18,7 @@ import UpdateProfileForm from "./components/dashboardcompo/UpdateProfileForm.jsx
 import Applicants from "./components/recruiterDashboard/Applicants.jsx";
 import MyApplications from "./components/dashboardcompo/MyApplications.jsx";
 import ProtectRoute from "./routes/ProtectRoute.jsx"
+import VerifyOtp from "./pages/VerifyOtp.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route index element={<AllPublicPages />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/verify-otp" element={<VerifyOtp/>} />
           </Route>
 
           <Route element={<ProtectRoute />}>
