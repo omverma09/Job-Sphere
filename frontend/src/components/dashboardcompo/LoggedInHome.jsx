@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 
 const LoggedInHome = () => {
-    const {user} = useAuth();
+  const { user } = useAuth();
   return (
     <div className="bg-gray-50 min-h-screen">
 
@@ -14,7 +14,7 @@ const LoggedInHome = () => {
         className="text-center py-16 px-4"
       >
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
-          {user ? `Hi, ${user.name}👋` : "Hi, Om! 👋"}
+          {user ? `Hi, ${user.name}👋` : null}
         </h1>
         <p className="mt-3 text-gray-600 text-lg">
           Let’s help you land your dream career

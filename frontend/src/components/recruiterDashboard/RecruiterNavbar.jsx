@@ -61,9 +61,6 @@ export default function RecruiterNavbar() {
             </NavLink>
 
             <div className="flex items-center space-x-4 pl-6 border-l border-gray-200">
-              <span className="text-gray-700 font-medium">
-                {user?.name || 'Recruiter'}
-              </span>
               <button
                 onClick={handleLogout}
                 className="text-red-600 hover:text-red-800 font-medium"

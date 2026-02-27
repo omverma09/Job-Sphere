@@ -137,7 +137,7 @@ export const getAllRecruiterApplications = async (req, res) => {
       })
       .populate({
         path: 'applicant',
-        select: 'name email'
+        select: 'name email resume'
       })
       .sort({ createdAt: -1 })
       .lean();
@@ -148,6 +148,7 @@ export const getAllRecruiterApplications = async (req, res) => {
         _id: app._id,
         candidateName: app.applicant?.name || 'Unknown',
         email: app.applicant?.email || 'N/A',
+        resumeUrl: app.applicant?.resume?.url || null,
         jobTitle: app.job?.title || 'Deleted Job',
         company: app.job?.company || '',
         appliedDate: app.createdAt.toISOString().split('T')[0],

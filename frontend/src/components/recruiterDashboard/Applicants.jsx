@@ -1,18 +1,19 @@
-// src/pages/recruiter/Applications.jsx
 import { useState, useEffect } from 'react';
 import Loader from "../Loader.jsx";
 import API from "../../api/axios.js";   // ← tumhara axios instance (token ke saath)
+import { useAuth } from '../../context/AuthContext.jsx';
 
 export default function Applicants() {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchApplications = async () => {
       try {
         const res = await API.get("/applications/recruiter/applications");
-        
+ 
         if (res.data.success) {
           setApplications(res.data.applications || []);
         } else {
@@ -31,9 +32,9 @@ export default function Applicants() {
 
   const getStatusStyles = (status) => {
     const styles = {
-      applied:     { bg: 'bg-yellow-100', text: 'text-yellow-800', label: 'Applied' },
-      shortlisted: { bg: 'bg-green-100',  text: 'text-green-800', label: 'Shortlisted' },
-      rejected:    { bg: 'bg-red-100',    text: 'text-red-800',   label: 'Rejected' },
+      applied: { bg: 'bg-yellow-100', text: 'text-yellow-800', label: 'Applied' },
+      shortlisted: { bg: 'bg-green-100', text: 'text-green-800', label: 'Shortlisted' },
+      rejected: { bg: 'bg-red-100', text: 'text-red-800', label: 'Rejected' },
     };
     return styles[status] || { bg: 'bg-gray-100', text: 'text-gray-800', label: status };
   };
@@ -43,12 +44,14 @@ export default function Applicants() {
   if (error) {
     return <div className="text-red-600 text-center py-10">{error}</div>;
   }
-
   return (
     <div className="space-y-6">
+      <h1 className="flex flex-col text-2xl md:text-3xl font-bold text-gray-800 text-center my-10">
+        {user ? `Hi, ${user.name} 👋` : null}
+      </h1>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-gray-800">Job Applications</h1>
-        
+        <h1 className="text-2xl font-bold text-gray-700">Your Applications</h1>
+
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <input
             type="text"
@@ -99,7 +102,12 @@ export default function Applicants() {
                     </td>
                     <td className="px-6 py-5">
                       <div className="flex gap-4 text-sm">
-                        <button className="text-indigo-600 hover:text-indigo-800">Resume</button>
+                        <a
+                          href={app.resumeUrl} target="_blank" rel="noreferrer"
+                          className="text-indigo-600 hover:text-indigo-800"
+                        >
+                          Resume
+                        </a>
                         <button className="text-green-600 hover:text-green-800">Shortlist</button>
                         <button className="text-red-600 hover:text-red-800">Reject</button>
                       </div>

@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import User from "../model/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -6,9 +9,7 @@ import { otpStore, generateTempId } from "../config/otpStore.js";
 
 /* mail transporter */
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,

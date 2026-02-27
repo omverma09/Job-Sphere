@@ -12,7 +12,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// storage
 const storage = new CloudinaryStorage({
   cloudinary,
   params: (req, file) => {
@@ -26,7 +25,7 @@ const storage = new CloudinaryStorage({
 
     if (file.fieldname === "resume") {
       folder = "JobPortal/resumes";
-      resource_type = "raw"; // IMPORTANT for pdf
+      resource_type = "auto";
     }
 
     return {

@@ -61,7 +61,7 @@ const JobDetails = () => {
 
       if (res.data.success) {
         setHasApplied(true);
-        alert("Application submitted successfully!"); // ← replace with better UI later
+        alert("Application submitted successfully!");
       }
     } catch (err) {
       console.error("Apply failed:", err);
