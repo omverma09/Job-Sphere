@@ -1,29 +1,41 @@
 import Loader from "../Loader";
 import JobCard from "./JobCard";
-import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
 
-const JobList = ({ jobs, loading }) => {
-  if (loading) {
+const JobList = ({ jobs, loading, lastJobRef }) => {
+  if (loading && (!jobs || jobs.length === 0)) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", minHeight: "60vh", alignItems: "center" }}>
+      <div className="flex justify-center items-center min-h-[60vh]">
         <Loader />
-      </Box>
+      </div>
     );
   }
 
-  if (!jobs) {
+  if (!jobs || jobs.length === 0) {
     return (
-      <Box sx={{ textAlign: "center", py: 8 }}>
-        <Typography variant="h5" color="error">Job not found</Typography>
-      </Box>
+      <div className="text-center py-8">
+        <Typography variant="h6" color="text.secondary" gutterBottom>
+          No jobs found
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Try adjusting your filters or check back later
+        </Typography>
+      </div>
     );
   }
 
   return (
-    <div className="md:col-span-3 space-y-4">
-      {jobs.map(job => (
-        <JobCard key={job._id} job={job} />
-      ))}
+    <div className="space-y-4">
+      {jobs.map((job, index) => {
+        if (jobs.length === index + 1) {
+          return (
+            <div ref={lastJobRef} key={job._id}>
+              <JobCard job={job} />
+            </div>
+          );
+        }
+        return <JobCard key={job._id} job={job} />;
+      })}
     </div>
   );
 };

@@ -115,6 +115,13 @@ export default function UserProfileMenu() {
 
         <Divider />
 
+        <MenuItem onClick={() => navigate('/student/dashboard/my-batch')}>
+          <ListItemIcon><ApplicationsIcon fontSize="small" /></ListItemIcon>
+            My Batch
+        </MenuItem>
+
+        <Divider />
+
         <MenuItem onClick={handleLogout} sx={{ color: 'error.main' }}>
           <ListItemIcon>
             <LogoutIcon fontSize="small" color="error" />

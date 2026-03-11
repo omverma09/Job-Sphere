@@ -1,24 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PublicLayout from "./layouts/PublicLayout.jsx"
+import PublicLayout from "./layouts/PublicLayout.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import AllPublicPages from "./layouts/AllPublicPages.jsx";
-import DashboardLayout from "./layouts/DashboardLayout.jsx"
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
 import DashboardAllPages from "./components/dashboardcompo/DashboardAllPages.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import JobsPage from "./pages/JobsPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import JobDetails from "./components/dashboardcompo/JobDetails.jsx";
 import Prepration from "./components/dashboardcompo/Prepration.jsx";
-import Courses from "./components/dashboardcompo/Courses.jsx";
+import AllCourses from "./components/dashboardcompo/AllCourses.jsx";
 import RecruiterLayout from "./layouts/RecruiterLayout.jsx";
 import PostJob from "./components/recruiterDashboard/PostJob.jsx";
 import MyJobs from "./components/recruiterDashboard/MyJobs.jsx";
 import UpdateProfileForm from "./components/dashboardcompo/UpdateProfileForm.jsx";
 import Applicants from "./components/recruiterDashboard/Applicants.jsx";
 import MyApplications from "./components/dashboardcompo/MyApplications.jsx";
-import ProtectRoute from "./routes/ProtectRoute.jsx"
+import ProtectRoute from "./routes/ProtectRoute.jsx";
 import VerifyOtp from "./pages/VerifyOtp.jsx";
+import MyBatch from "./components/dashboardcompo/MyBatch.jsx";
+import CourseDetails from "./components/dashboardcompo/CourseDetails.jsx";
+import WatchCourse from "./components/dashboardcompo/WatchCourse.jsx";
 
 function App() {
   return (
@@ -38,11 +41,14 @@ function App() {
               <Route index element={<DashboardAllPages />} />
               <Route path="update-profile" element={<UpdateProfileForm />} />
               <Route path="my-application" element={<MyApplications />} />
+              <Route path="my-batch" element={<MyBatch/>}/>
               <Route path="prepare" element={<Prepration />} />
-              <Route path="placement-courses" element={<Courses />} />
+              <Route path="placement-courses" element={<AllCourses />} />
+              <Route path="courses/:id" element={<CourseDetails />} />
               <Route path="jobs" element={<JobsPage />} />
               <Route path="jobs/:id" element={<JobDetails />} />
             </Route>
+            <Route path="/watch-course/:id" element={<WatchCourse />} />
 
             <Route path="/recruiter/dashboard" element={<RecruiterLayout />}>
               <Route index element={<Applicants />} />

@@ -4,8 +4,8 @@ dotenv.config();
 import User from "../model/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
 import { otpStore, generateTempId } from "../config/otpStore.js";
+import nodemailer from "nodemailer"
 
 /* mail transporter */
 const transporter = nodemailer.createTransport({
@@ -16,7 +16,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-/* REGISTER (SEND OTP) */
 export const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;

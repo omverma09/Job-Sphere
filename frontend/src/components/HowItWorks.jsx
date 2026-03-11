@@ -32,7 +32,7 @@ const HowItWorks = () => {
         {/* Heading */}
         <div className="text-center mb-14">
           <h1 className="text-4xl font-bold text-gray-800">
-            How <span className="text-blue-600">JobPortal</span> Works
+            How <span className="text-blue-600">JobSphere</span> Works
           </h1>
           <p className="mt-3 text-gray-600">
             Find jobs in just a few simple steps

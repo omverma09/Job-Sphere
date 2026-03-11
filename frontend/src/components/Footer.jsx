@@ -14,7 +14,7 @@ const Footer = () => {
 
           <div>
             <h2 className="text-2xl font-bold text-white mb-3">
-              JobPortal
+              JobSpere
             </h2>
             <p className="text-sm text-gray-400">
               Helping students and freshers find jobs, internships,
@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
 
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} JobPortal. All rights reserved.
+            © {new Date().getFullYear()} JobSphere. All rights reserved to Omverma.
           </p>
 
           <p className="text-sm text-gray-400">

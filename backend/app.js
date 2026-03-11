@@ -7,13 +7,25 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-import userRoutes from "./router/user.route.js"
-import authRoutes from "./router/auth.route.js"
+import userRoutes from "./router/user.route.js";
+import authRoutes from "./router/auth.route.js";
 import jobRoutes from "./router/job.route.js";
 import applicationRoutes from "./router/application.route.js";
-
+import courseRoutes from "./router/course.route.js";
+import moduleRoutes from "./router/module.route.js";
+import lectureRoutes from "./router/lecture.route.js";
+import paymentRoutes from "./router/payment.route.js";
+import {stripeWebhook} from "./webhooks/stripeWebhook.js";
 
 app.use(cors());
+
+// WEBHOOK FIRST (before express.json)
+app.post(
+  "/api/webhook/stripe",
+  express.raw({ type: "application/json" }),
+  stripeWebhook
+);
+
 app.use(express.json());
 
 const connectDB = async () => {
@@ -31,8 +43,10 @@ app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/applications", applicationRoutes);
-
-
+app.use("/api/courses", courseRoutes);
+app.use("/api/modules", moduleRoutes);
+app.use("/api/lectures", lectureRoutes);
+app.use("/api/payment", paymentRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).json({
