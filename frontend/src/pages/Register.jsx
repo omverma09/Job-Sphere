@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const roles = [
   { value: "user", label: "User" },
   { value: "recruiter", label: "Recruiter" },
+  { value: "instructor", label: "Instructor" },
 ];
 
 const Register = () => {

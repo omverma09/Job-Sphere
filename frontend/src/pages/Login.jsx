@@ -36,12 +36,15 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         
         if(user.role == "recruiter"){
-           navigate("/recruiter/dashboard");
+          navigate("/recruiter/dashboard");
           window.location.reload();
         } else if(user.role == "user"){
           navigate("/student/dashboard");
           window.location.reload();
-        } else{
+        } else if(user.role == "instructor"){
+          navigate("/instructor/dashboard");
+        } 
+        else{
           navigate("/login");
           window.location.reload();
         }

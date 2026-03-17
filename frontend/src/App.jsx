@@ -23,6 +23,14 @@ import MyBatch from "./components/dashboardcompo/MyBatch.jsx";
 import CourseDetails from "./components/dashboardcompo/CourseDetails.jsx";
 import WatchCourse from "./components/dashboardcompo/WatchCourse.jsx";
 
+import InstructorLayout from "./layouts/InstructorLayout.jsx";
+import InstructorDashboard from "./components/InstructorDashboard/InstructorDashboard.jsx";
+import InstructorCourses from "./components/InstructorDashboard/InstructorCourses.jsx";
+import CourseBuilder from "./components/InstructorDashboard/CourseBuilder.jsx";
+import MyStudents from "./components/InstructorDashboard/MyStudents.jsx";
+import MyPayments from "./components/InstructorDashboard/MyPayments.jsx";
+import InstructorSetting from "./components/InstructorDashboard/InstructorSetting.jsx";
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,7 +41,7 @@ function App() {
             <Route index element={<AllPublicPages />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/verify-otp" element={<VerifyOtp/>} />
+            <Route path="/verify-otp" element={<VerifyOtp />} />
           </Route>
 
           <Route element={<ProtectRoute />}>
@@ -41,19 +49,29 @@ function App() {
               <Route index element={<DashboardAllPages />} />
               <Route path="update-profile" element={<UpdateProfileForm />} />
               <Route path="my-application" element={<MyApplications />} />
-              <Route path="my-batch" element={<MyBatch/>}/>
+              <Route path="my-batch" element={<MyBatch />} />
               <Route path="prepare" element={<Prepration />} />
               <Route path="placement-courses" element={<AllCourses />} />
               <Route path="courses/:id" element={<CourseDetails />} />
               <Route path="jobs" element={<JobsPage />} />
               <Route path="jobs/:id" element={<JobDetails />} />
             </Route>
+
             <Route path="/watch-course/:id" element={<WatchCourse />} />
 
             <Route path="/recruiter/dashboard" element={<RecruiterLayout />}>
               <Route index element={<Applicants />} />
               <Route path="post-job" element={<PostJob />} />
               <Route path="my-jobs" element={<MyJobs />} />
+            </Route>
+
+            <Route path="/instructor/dashboard" element={<InstructorLayout />}>
+              <Route index element={<InstructorDashboard />} />
+              <Route path="courses" element={<InstructorCourses />} />
+              <Route path="course-builder/:id" element={<CourseBuilder />} />
+              <Route path="students" element={<MyStudents />} />
+              <Route path="payments" element={<MyPayments />} />
+              <Route path="setting" element={<InstructorSetting />}/>
             </Route>
 
           </Route>

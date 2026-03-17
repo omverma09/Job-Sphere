@@ -16,7 +16,6 @@ const moduleSchema = new mongoose.Schema(
         order: {
             type: Number
         }
-
     },
     { timestamps: true }
 );

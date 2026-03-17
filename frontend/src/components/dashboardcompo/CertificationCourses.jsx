@@ -77,7 +77,7 @@ const CertificationCourses = () => {
 
       {/* Skill Pass */}
       <div className="text-center mt-10 text-gray-700">
-        💎 <span className="font-semibold">Internshala Skill Pass:</span> Unlock
+        💎 <span className="font-semibold">JobSphere Skill Pass:</span> Unlock
         lifetime access to all 70+ certification courses.{" "}
         <span className="text-blue-600 cursor-pointer font-medium">
           Explore now →

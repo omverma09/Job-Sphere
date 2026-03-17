@@ -46,7 +46,7 @@ const MyBatchCard = ({ course }) => {
           </div>
 
           <Button variant="contained" fullWidth
-             onClick={() => navigate(`/watch-course/${course._id}`)}
+            onClick={() => navigate(`/watch-course/${course._id}`)}
           >
             Continue
           </Button>
