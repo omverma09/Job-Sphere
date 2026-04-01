@@ -13,6 +13,8 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import {
   Home as HomeIcon,
@@ -116,8 +118,12 @@ export default function UserProfileMenu() {
         <Divider />
 
         <MenuItem onClick={() => navigate('/student/dashboard/my-batch')}>
-          <ListItemIcon><ApplicationsIcon fontSize="small" /></ListItemIcon>
-            My Batch
+          <LibraryBooksIcon fontSize="small" className='opacity-60'/>
+            <span className='ml-5'>My Batch</span>
+        </MenuItem>
+        <MenuItem onClick={() => navigate('/student/dashboard/settings')}>
+          <SettingsIcon fontSize="small" className='opacity-60'/>
+            <span className='ml-5'>Setting</span>
         </MenuItem>
 
         <Divider />

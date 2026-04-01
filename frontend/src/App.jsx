@@ -22,6 +22,7 @@ import VerifyOtp from "./pages/VerifyOtp.jsx";
 import MyBatch from "./components/dashboardcompo/MyBatch.jsx";
 import CourseDetails from "./components/dashboardcompo/CourseDetails.jsx";
 import WatchCourse from "./components/dashboardcompo/WatchCourse.jsx";
+import StudentProfile from "./pages/StudentProfile.jsx";
 
 import InstructorLayout from "./layouts/InstructorLayout.jsx";
 import InstructorDashboard from "./components/InstructorDashboard/InstructorDashboard.jsx";
@@ -47,6 +48,7 @@ function App() {
           <Route element={<ProtectRoute />}>
             <Route path="/student/dashboard" element={<DashboardLayout />}>
               <Route index element={<DashboardAllPages />} />
+              <Route path="/student/dashboard/profile" element={<StudentProfile/>} />
               <Route path="update-profile" element={<UpdateProfileForm />} />
               <Route path="my-application" element={<MyApplications />} />
               <Route path="my-batch" element={<MyBatch />} />
@@ -71,7 +73,7 @@ function App() {
               <Route path="course-builder/:id" element={<CourseBuilder />} />
               <Route path="students" element={<MyStudents />} />
               <Route path="payments" element={<MyPayments />} />
-              <Route path="setting" element={<InstructorSetting />}/>
+              <Route path="setting" element={<InstructorSetting />} />
             </Route>
 
           </Route>
