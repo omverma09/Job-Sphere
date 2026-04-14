@@ -4,20 +4,22 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api/axios";
+import { useAuth } from "../context/AuthContext";
 
 const ROLE_ROUTES = {
-  recruiter: "/recruiter/dashboard",
-  user: "/student/dashboard",
+  recruiter:  "/recruiter/dashboard",
+  user:       "/student/dashboard",
   instructor: "/instructor/dashboard",
 };
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate  = useNavigate();
+  const { login } = useAuth(); // context ka login use karo
 
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm]             = useState({ email: "", password: "" });
   const [showPassword, setShowPass] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loading, setLoading]       = useState(false);
+  const [error, setError]           = useState("");
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -31,12 +33,12 @@ const Login = () => {
 
     try {
       const { data } = await API.post("/auth/login", {
-        email: form.email.trim().toLowerCase(),
+        email:    form.email.trim().toLowerCase(),
         password: form.password,
       });
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      // Context update + localStorage dono ek saath
+      login(data.user, data.token);
 
       const destination = ROLE_ROUTES[data.user.role] ?? "/";
       navigate(destination, { replace: true });
