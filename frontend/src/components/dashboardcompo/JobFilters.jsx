@@ -43,6 +43,15 @@ const JobFilters = ({ onApply }) => {
         `}
       >
         <h3 className="font-semibold text-lg">Filters</h3>
+        <button
+          onClick={() => {
+            onApply(filters);
+            setOpen(false); // mobile pe apply ke baad close
+          }}
+          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Apply Filters
+        </button>
 
         {/* Work Mode */}
         <div>
@@ -99,15 +108,7 @@ const JobFilters = ({ onApply }) => {
           />
         </div>
 
-        <button
-          onClick={() => {
-            onApply(filters);
-            setOpen(false); // mobile pe apply ke baad close
-          }}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          Apply Filters
-        </button>
+        
       </div>
     </div>
   );
