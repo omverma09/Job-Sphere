@@ -8,7 +8,7 @@ const JobCard = ({ job }) => {
     salary,
     workMode = "on-site",
     location = "Location",
-    _id, // for key or link if needed
+    _id,
   } = job || {};
 
   const salaryDisplay = salary

@@ -11,14 +11,12 @@ const AllCourseCard = ({ course }) => {
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -10, scale: 1.03 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ once: true, margin: "-40px" }} // margin helps trigger a bit earlier
-      // You can also add whileTap if you want press/click feedback
-      // whileTap={{ scale: 0.98 }}
+      viewport={{ once: true, margin: "-40px" }} 
+      
     >
       <Card
         className="rounded-xl shadow-md cursor-pointer h-full flex flex-col"
         onClick={() => navigate(`/student/dashboard/courses/${course._id}`)}
-        // Optional: let Card still handle elevation/shadow changes if you want
       >
         <div className="h-40 bg-gray-200 flex items-center justify-center overflow-hidden">
           {course.thumbnail ? (

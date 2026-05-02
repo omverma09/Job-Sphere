@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  // baseURL: "https://job-sphere-backend-6zgd.onrender.com/api",
   baseURL: import.meta.env.VITE_API_URL,
+  timeout: 15000,
 });
 
 API.interceptors.request.use((req) => {
@@ -12,5 +12,16 @@ API.interceptors.request.use((req) => {
   }
   return req;
 });
+
+API.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    if (err.response?.status === 401) {
+      localStorage.clear();
+      window.location.href = "/login";
+    }
+    return Promise.reject(err);
+  }
+);
 
 export default API;

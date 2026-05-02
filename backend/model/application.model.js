@@ -7,13 +7,11 @@ const applicationSchema = new mongoose.Schema(
       ref: "Job",
       required: true,
     },
-
     applicant: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-
     status: {
       type: String,
       enum: ["applied", "shortlisted", "rejected"],
@@ -23,10 +21,8 @@ const applicationSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-/* Prevent duplicate application */
-applicationSchema.index(
-  { job: 1, applicant: 1 },
-  { unique: true }
-);
+applicationSchema.index({ job: 1, applicant: 1 }, { unique: true });
+applicationSchema.index({ applicant: 1 });
+applicationSchema.index({ job: 1 });
 
 export default mongoose.model("Application", applicationSchema);

@@ -17,8 +17,7 @@ const InstructorCourses = () => {
 
                 const { data } = await API.get("courses/instructor/my-courses");
 
-                setCourses(data?.courses ?? []);   // ← clean & safe fix
-
+                setCourses(data?.courses ?? []);
             } catch (err) {
                 console.error("API Error:", err);
                 setError(

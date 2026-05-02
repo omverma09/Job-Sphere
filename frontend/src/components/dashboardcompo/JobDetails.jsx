@@ -22,7 +22,7 @@ import {
   CurrencyRupee as CurrencyRupeeIcon,
 } from "@mui/icons-material";
 
-import API from "../../api/axios.js"       // ← your axios instance (with token)
+import API from "../../api/axios.js"
 import Loader from "../Loader.jsx"
 
 const JobDetails = () => {
@@ -76,7 +76,6 @@ const JobDetails = () => {
 
   const toggleSave = () => {
     setIsSaved((prev) => !prev);
-    // TODO: call save/unsave API when you implement it
   };
 
   if (loading) {
