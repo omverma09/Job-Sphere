@@ -96,7 +96,6 @@ const LoggedInNavbar = () => {
 
                         {/* Desktop Profile Menu */}
                         <div className="hidden md:flex items-center gap-1 cursor-pointer">
-                            <KeyboardArrowDown className="text-gray-600" />
                             <UserProfileMenu />
                         </div>
         

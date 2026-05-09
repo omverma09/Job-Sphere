@@ -21,7 +21,6 @@ import { stripeWebhook } from "./webhooks/stripeWebhook.js";
 // Trust proxy (important for rate limiting behind Render/Railway/Heroku)
 app.set("trust proxy", 1);
 
-// Gzip compression for faster responses
 app.use(compression());
 
 // CORS - only allow your frontend domain
@@ -49,7 +48,7 @@ app.post(
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
-// ── DB Connection ──────────────────────────────────────────────────────────────
+// DB Connection
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
@@ -57,9 +56,9 @@ const connectDB = async () => {
       serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
     });
-    console.log("✅ MongoDB Connected");
+    console.log(" MongoDB Connected");
   } catch (error) {
-    console.error("❌ MongoDB connection failed:", error.message);
+    console.error(" MongoDB connection failed:", error.message);
     process.exit(1);
   }
 };
@@ -72,7 +71,7 @@ mongoose.connection.on("disconnected", () => {
 
 connectDB();
 
-// ── Routes ─────────────────────────────────────────────────────────────────────
+// Routes
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
@@ -82,12 +81,11 @@ app.use("/api/modules", moduleRoutes);
 app.use("/api/lectures", lectureRoutes);
 app.use("/api/payment", paymentRoutes);
 
-// Health-check (Render pings "/" to wake the server)
 app.get("/", (req, res) => {
   res.status(200).json({ success: true, message: "Job Portal API Running" });
 });
 
-// ── Global error handler ───────────────────────────────────────────────────────
+// ── Global error handler
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   res.status(statusCode).json({
