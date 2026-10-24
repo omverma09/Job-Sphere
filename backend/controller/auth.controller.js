@@ -32,7 +32,7 @@ export const register = async (req, res) => {
     if (password.length < 8)
       return res.status(400).json({ success: false, message: "Password must be at least 8 characters." });
 
-    const allowedRoles = ["user", "recruiter", "instructor"];
+    const allowedRoles = ["user", "recruiter"];
     const assignedRole = allowedRoles.includes(role) ? role : "user";
 
     // Check existing verified user
