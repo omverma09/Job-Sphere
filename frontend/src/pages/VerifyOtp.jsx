@@ -87,7 +87,6 @@ const VerifyOtp = () => {
       const ROLE_ROUTES = {
         recruiter: "/recruiter/dashboard",
         user: "/student/dashboard",
-        instructor: "/instructor/dashboard",
       };
       navigate(ROLE_ROUTES[data.user.role] ?? "/", { replace: true });
 

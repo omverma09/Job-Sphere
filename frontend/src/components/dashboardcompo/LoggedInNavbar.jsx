@@ -66,7 +66,7 @@ const LoggedInNavbar = () => {
                             Preparation
                         </NavLink>
                         <NavLink
-                            to="/student/dashboard/placement-courses"
+                            to="/student/dashboard/resume-builder"
                             className={({ isActive }) =>
                                 `py-2 px-3 rounded-md transition-colors ${isActive
                                     ? 'bg-indigo-50 text-indigo-700 font-medium underline underline-offset-4 decoration-2 decoration-indigo-600'
@@ -74,7 +74,7 @@ const LoggedInNavbar = () => {
                                 }`
                             }
                         >
-                            Placement Courses
+                            AI Resume Builder
                         </NavLink>
                         <NavLink
                             to="/student/dashboard/jobs"
@@ -160,7 +160,7 @@ const LoggedInNavbar = () => {
                             }
                         >
                             <CoursesIcon className="text-2xl" />
-                            <span className="text-[10px] mt-0.5 font-medium">Courses</span>
+                            <span className="text-[10px] mt-0.5 font-medium">AI Resume Builder</span>
                         </NavLink>
 
                         {/* Jobs */}

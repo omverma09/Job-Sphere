@@ -8,7 +8,6 @@ import API from "../api/axios";
 const ROLES = [
   { value: "user", label: "Job Seeker" },
   { value: "recruiter", label: "Recruiter" },
-  { value: "instructor", label: "Instructor" },
 ];
 
 const Register = () => {

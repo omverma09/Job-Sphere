@@ -9,7 +9,6 @@ import { useAuth } from "../context/AuthContext";
 const ROLE_ROUTES = {
   recruiter:  "/recruiter/dashboard",
   user:       "/student/dashboard",
-  instructor: "/instructor/dashboard",
 };
 
 const Login = () => {
